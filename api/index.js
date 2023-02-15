@@ -24,17 +24,7 @@ const { Videogame , Gender} = require('./src/db');
 const  axios  = require('axios')
 
 // Syncing all the models at once.
-async function getGenders() {
-  const dataApi = (await axios.get(`https://api.rawg.io/api/genres?key=${APIKEY}`)).data
-dataApi.results.map(async g => await Gender.findOrCreate(
-    {where:{
-        gender:g.name
-    }
-}))
-const generosBD = await Gender.findAll()
-const genres= generosBD.map(g=>g.gender)
-return genres
-}
+
 
 
 conn.sync({ force: true }).then(() => {
