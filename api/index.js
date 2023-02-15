@@ -17,19 +17,11 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-const { APIKEY } = process.env
-const { Videogame , Gender} = require('./src/db');
-const  axios  = require('axios')
+const express = require('express')
+const app = express()
 
-// Syncing all the models at once.
+const port = 4000
 
+app.listen(port)
 
-
-conn.sync({ force: true }).then(() => {
-  getGenders()
-  server.listen(9000, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  })
-});
+console.log("ok");
